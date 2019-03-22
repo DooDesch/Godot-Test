@@ -9,6 +9,8 @@ var crouch = false
 
 func _input(_event):
 	direction = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+	if spell:
+		direction = 0
 	
 	if Input.is_action_pressed("sprint"): sprint = SPRINT
 	else: sprint = 0
