@@ -30,7 +30,7 @@ var hurt = false
 var health
 var is_on_floor = is_on_floor()
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	is_on_floor = is_on_floor()
 	

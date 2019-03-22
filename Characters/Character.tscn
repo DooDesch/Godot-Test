@@ -398,7 +398,7 @@ tracks/0/keys = {
 "values": [ 54, 55, 56, 57 ]
 }
 
-[sub_resource type="Animation" id=74]
+[sub_resource type="Animation" id=14]
 resource_name = "die"
 length = 0.7
 tracks/0/type = "value"
@@ -414,7 +414,7 @@ tracks/0/keys = {
 "values": [ 58, 60, 61, 62, 63, 64, 65 ]
 }
 
-[sub_resource type="Animation" id=75]
+[sub_resource type="Animation" id=15]
 resource_name = "dieloop"
 length = 0.4
 loop = true
@@ -431,7 +431,7 @@ tracks/0/keys = {
 "values": [ 63, 64 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -447,7 +447,7 @@ tracks/0/keys = {
 "values": [ 66, 67 ]
 }
 
-[sub_resource type="Animation" id=83]
+[sub_resource type="Animation" id=17]
 resource_name = "hurt"
 length = 0.4
 tracks/0/type = "value"
@@ -463,7 +463,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.270588, 0.270588, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.270588, 0.270588, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=18]
 length = 0.5
 loop = true
 step = 0.03
@@ -480,7 +480,7 @@ tracks/0/keys = {
 "values": [ 72, 73, 74, 75 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=19]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -495,7 +495,7 @@ tracks/0/keys = {
 "values": [ 84, 85, 86, 87 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=20]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -511,75 +511,65 @@ tracks/0/keys = {
 "values": [ 93, 94, 95, 96, 97, 98 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "airattack1"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "airattack2"
 
-[sub_resource type="GDScript" id=20]
-
-[sub_resource type="AnimationNodeAnimation" id=21]
-animation = "airattack3end"
-script = SubResource( 20 )
-
-[sub_resource type="GDScript" id=22]
-
-[sub_resource type="AnimationNodeAnimation" id=23]
-animation = "airattack3loop"
-script = SubResource( 22 )
+[sub_resource type="GDScript" id=23]
 
 [sub_resource type="AnimationNodeAnimation" id=24]
-animation = "airattack3ready"
+animation = "airattack3end"
+script = SubResource( 23 )
 
-[sub_resource type="AnimationNodeAnimation" id=25]
-animation = "attack1"
+[sub_resource type="GDScript" id=25]
 
 [sub_resource type="AnimationNodeAnimation" id=26]
-animation = "attack2"
+animation = "airattack3loop"
+script = SubResource( 25 )
 
 [sub_resource type="AnimationNodeAnimation" id=27]
-animation = "attack3"
+animation = "airattack3ready"
 
 [sub_resource type="AnimationNodeAnimation" id=28]
-animation = "cast"
+animation = "attack1"
 
 [sub_resource type="AnimationNodeAnimation" id=29]
-animation = "castend"
+animation = "attack2"
 
 [sub_resource type="AnimationNodeAnimation" id=30]
-animation = "castloop"
+animation = "attack3"
 
 [sub_resource type="AnimationNodeAnimation" id=31]
-animation = "crouch"
-
-[sub_resource type="AnimationNodeAnimation" id=81]
-animation = "die"
-
-[sub_resource type="AnimationNodeAnimation" id=77]
-animation = "dieloop"
+animation = "cast"
 
 [sub_resource type="AnimationNodeAnimation" id=32]
-animation = "fall"
+animation = "castend"
 
 [sub_resource type="AnimationNodeAnimation" id=33]
-animation = "idle"
+animation = "castloop"
 
 [sub_resource type="AnimationNodeAnimation" id=34]
-animation = "jump"
+animation = "crouch"
 
 [sub_resource type="AnimationNodeAnimation" id=35]
+animation = "die"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "dieloop"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "fall"
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=39]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=40]
 animation = "run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=36]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=37]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
 
@@ -598,25 +588,23 @@ animation = "run"
 [sub_resource type="AnimationNodeStateMachineTransition" id=48]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=49]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=50]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=51]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=52]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=53]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=54]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=55]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=56]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=57]
 switch_mode = 2
@@ -625,85 +613,97 @@ switch_mode = 2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=59]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=60]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=61]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=62]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=63]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=64]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=65]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=66]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=67]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=68]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=69]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=70]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=80]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=82]
+[sub_resource type="AnimationNodeStateMachineTransition" id=71]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=71]
-states/airattack1/node = SubResource( 18 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=78]
+states/airattack1/node = SubResource( 21 )
 states/airattack1/position = Vector2( 1111, 80 )
-states/airattack2/node = SubResource( 19 )
+states/airattack2/node = SubResource( 22 )
 states/airattack2/position = Vector2( 1106, 216 )
-states/airattack3end/node = SubResource( 21 )
+states/airattack3end/node = SubResource( 24 )
 states/airattack3end/position = Vector2( 579, 251.544 )
-states/airattack3loop/node = SubResource( 23 )
+states/airattack3loop/node = SubResource( 26 )
 states/airattack3loop/position = Vector2( 757, 363.544 )
-states/airattack3ready/node = SubResource( 24 )
+states/airattack3ready/node = SubResource( 27 )
 states/airattack3ready/position = Vector2( 1096, 356.544 )
-states/attack1/node = SubResource( 25 )
+states/attack1/node = SubResource( 28 )
 states/attack1/position = Vector2( 208, 95 )
-states/attack2/node = SubResource( 26 )
+states/attack2/node = SubResource( 29 )
 states/attack2/position = Vector2( 208, -54 )
-states/attack3/node = SubResource( 27 )
+states/attack3/node = SubResource( 30 )
 states/attack3/position = Vector2( 351, -179.831 )
-states/cast/node = SubResource( 28 )
+states/cast/node = SubResource( 31 )
 states/cast/position = Vector2( 700, -236 )
-states/castend/node = SubResource( 29 )
+states/castend/node = SubResource( 32 )
 states/castend/position = Vector2( 852, -224.831 )
-states/castloop/node = SubResource( 30 )
+states/castloop/node = SubResource( 33 )
 states/castloop/position = Vector2( 852, -313 )
-states/crouch/node = SubResource( 31 )
+states/crouch/node = SubResource( 34 )
 states/crouch/position = Vector2( 852, -81 )
-states/die/node = SubResource( 81 )
+states/die/node = SubResource( 35 )
 states/die/position = Vector2( -17, -242 )
-states/dieloop/node = SubResource( 77 )
+states/dieloop/node = SubResource( 36 )
 states/dieloop/position = Vector2( 162, -242 )
-states/fall/node = SubResource( 32 )
+states/fall/node = SubResource( 37 )
 states/fall/position = Vector2( 786, 231 )
-states/idle/node = SubResource( 33 )
+states/idle/node = SubResource( 38 )
 states/idle/position = Vector2( 586, 110 )
-states/jump/node = SubResource( 34 )
+states/jump/node = SubResource( 39 )
 states/jump/position = Vector2( 839, 86 )
-states/run/node = SubResource( 35 )
+states/run/node = SubResource( 40 )
 states/run/position = Vector2( 579, -131 )
-transitions = [ "idle", "jump", SubResource( 36 ), "idle", "fall", SubResource( 37 ), "idle", "attack1", SubResource( 38 ), "run", "attack1", SubResource( 39 ), "idle", "run", SubResource( 40 ), "idle", "crouch", SubResource( 41 ), "run", "crouch", SubResource( 42 ), "crouch", "idle", SubResource( 43 ), "jump", "fall", SubResource( 44 ), "jump", "idle", SubResource( 45 ), "fall", "idle", SubResource( 46 ), "jump", "airattack1", SubResource( 47 ), "airattack3loop", "airattack3end", SubResource( 48 ), "attack1", "idle", SubResource( 49 ), "airattack1", "airattack2", SubResource( 50 ), "airattack2", "airattack3ready", SubResource( 51 ), "airattack3ready", "airattack3loop", SubResource( 52 ), "airattack1", "fall", SubResource( 53 ), "crouch", "jump", SubResource( 54 ), "crouch", "attack1", SubResource( 55 ), "fall", "airattack1", SubResource( 56 ), "airattack2", "fall", SubResource( 57 ), "airattack3end", "idle", SubResource( 58 ), "attack1", "attack2", SubResource( 59 ), "attack2", "attack3", SubResource( 60 ), "attack3", "idle", SubResource( 61 ), "attack2", "idle", SubResource( 62 ), "idle", "cast", SubResource( 63 ), "run", "cast", SubResource( 64 ), "crouch", "cast", SubResource( 65 ), "cast", "castloop", SubResource( 66 ), "castloop", "castend", SubResource( 67 ), "castend", "idle", SubResource( 68 ), "cast", "castend", SubResource( 69 ), "run", "idle", SubResource( 70 ), "dieloop", "idle", SubResource( 80 ), "die", "dieloop", SubResource( 82 ) ]
+transitions = [ "idle", "jump", SubResource( 41 ), "idle", "fall", SubResource( 42 ), "idle", "attack1", SubResource( 43 ), "run", "attack1", SubResource( 44 ), "idle", "run", SubResource( 45 ), "idle", "crouch", SubResource( 46 ), "run", "crouch", SubResource( 47 ), "crouch", "idle", SubResource( 48 ), "jump", "fall", SubResource( 49 ), "jump", "idle", SubResource( 50 ), "fall", "idle", SubResource( 51 ), "jump", "airattack1", SubResource( 52 ), "airattack3loop", "airattack3end", SubResource( 53 ), "attack1", "idle", SubResource( 54 ), "airattack1", "airattack2", SubResource( 55 ), "airattack2", "airattack3ready", SubResource( 56 ), "airattack3ready", "airattack3loop", SubResource( 57 ), "airattack1", "fall", SubResource( 58 ), "crouch", "jump", SubResource( 59 ), "crouch", "attack1", SubResource( 60 ), "fall", "airattack1", SubResource( 61 ), "airattack2", "fall", SubResource( 62 ), "airattack3end", "idle", SubResource( 63 ), "attack1", "attack2", SubResource( 64 ), "attack2", "attack3", SubResource( 65 ), "attack3", "idle", SubResource( 66 ), "attack2", "idle", SubResource( 67 ), "idle", "cast", SubResource( 68 ), "run", "cast", SubResource( 69 ), "crouch", "cast", SubResource( 70 ), "cast", "castloop", SubResource( 71 ), "castloop", "castend", SubResource( 72 ), "castend", "idle", SubResource( 73 ), "cast", "castend", SubResource( 74 ), "run", "idle", SubResource( 75 ), "dieloop", "idle", SubResource( 76 ), "die", "dieloop", SubResource( 77 ) ]
 start_node = "idle"
 graph_offset = Vector2( -161, -368.831 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=72]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=79]
 
-[sub_resource type="RectangleShape2D" id=73]
+[sub_resource type="RectangleShape2D" id=80]
 extents = Vector2( 16, 16 )
 
 [node name="Character" type="KinematicBody2D" groups=[
@@ -751,24 +751,23 @@ anims/cast = SubResource( 10 )
 anims/castend = SubResource( 11 )
 anims/castloop = SubResource( 12 )
 anims/crouch = SubResource( 13 )
-anims/die = SubResource( 74 )
-anims/dieloop = SubResource( 75 )
-anims/fall = SubResource( 14 )
-anims/hurt = SubResource( 83 )
-anims/idle = SubResource( 15 )
-anims/jump = SubResource( 16 )
-anims/run = SubResource( 17 )
+anims/die = SubResource( 14 )
+anims/dieloop = SubResource( 15 )
+anims/fall = SubResource( 16 )
+anims/hurt = SubResource( 17 )
+anims/idle = SubResource( 18 )
+anims/jump = SubResource( 19 )
+anims/run = SubResource( 20 )
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite"]
-tree_root = SubResource( 71 )
+tree_root = SubResource( 78 )
 anim_player = NodePath("../AnimationPlayer")
 root_motion_track = NodePath(".:frame")
-parameters/playback = SubResource( 72 )
+parameters/playback = SubResource( 79 )
 script = ExtResource( 4 )
 
 [node name="FireSpell" parent="Sprite" instance=ExtResource( 5 )]
 visible = false
-show_behind_parent = true
 position = Vector2( 17.2627, 1.45323 )
 scale = Vector2( 0.5, 0.5 )
 
@@ -781,7 +780,7 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Attack"]
 scale = Vector2( 0.5, 0.125 )
-shape = SubResource( 73 )
+shape = SubResource( 80 )
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
 [connection signal="timeout" from="ComboTimer" to="." method="_on_ComboTimer_timeout"]

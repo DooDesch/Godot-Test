@@ -1,21 +1,24 @@
-extends Node2D
+extends Particles2D
 
-onready var particles = get_node("Particles2D")
 onready var player = get_node("../..")
+
 
 func _ready():
 	visible = true
-	particles.emitting = false
-	
+	emitting = false
+
+
 func _cast_loop():
-	particles.emitting = true
-	
+	emitting = true
+
+
 func _cast_end():
-	particles.emitting = false
+	emitting = false
+
 
 func _process(_delta):
 	if player.direction < 0:
-		rotation = 180
+		rotation_degrees = 180
 	elif player.direction > 0:
-		rotation = 0
+		rotation_degrees = 0
 	pass
