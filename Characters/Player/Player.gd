@@ -9,8 +9,6 @@ var crouch = false
 
 func _input(_event):
 	direction = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
-	if spell:
-		direction = 0
 	
 	if Input.is_action_pressed("sprint"): sprint = SPRINT
 	else: sprint = 0
@@ -39,7 +37,8 @@ func _input(_event):
 func custom_attack():
 	if is_on_floor:
 		if spell:
-			is_frozen = true
+			direction = 0 #Prevent changing looking direction
+			is_frozen = true #Prevent moving vertical or horizontal
 
 
 func custom_animation():
