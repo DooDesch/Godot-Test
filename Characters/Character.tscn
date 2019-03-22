@@ -1,11 +1,10 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Characters/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Characters/Player/Sprite.gd" type="Script" id=3]
 [ext_resource path="res://Characters/Player/AnimationTree.gd" type="Script" id=4]
-[ext_resource path="res://Characters/Player/FireSpell.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Characters/Player/Attack.gd" type="Script" id=6]
+[ext_resource path="res://Characters/Player/Attack.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 12.0
@@ -699,7 +698,7 @@ states/run/node = SubResource( 40 )
 states/run/position = Vector2( 579, -131 )
 transitions = [ "idle", "jump", SubResource( 41 ), "idle", "fall", SubResource( 42 ), "idle", "attack1", SubResource( 43 ), "run", "attack1", SubResource( 44 ), "idle", "run", SubResource( 45 ), "idle", "crouch", SubResource( 46 ), "run", "crouch", SubResource( 47 ), "crouch", "idle", SubResource( 48 ), "jump", "fall", SubResource( 49 ), "jump", "idle", SubResource( 50 ), "fall", "idle", SubResource( 51 ), "jump", "airattack1", SubResource( 52 ), "airattack3loop", "airattack3end", SubResource( 53 ), "attack1", "idle", SubResource( 54 ), "airattack1", "airattack2", SubResource( 55 ), "airattack2", "airattack3ready", SubResource( 56 ), "airattack3ready", "airattack3loop", SubResource( 57 ), "airattack1", "fall", SubResource( 58 ), "crouch", "jump", SubResource( 59 ), "crouch", "attack1", SubResource( 60 ), "fall", "airattack1", SubResource( 61 ), "airattack2", "fall", SubResource( 62 ), "airattack3end", "idle", SubResource( 63 ), "attack1", "attack2", SubResource( 64 ), "attack2", "attack3", SubResource( 65 ), "attack3", "idle", SubResource( 66 ), "attack2", "idle", SubResource( 67 ), "idle", "cast", SubResource( 68 ), "run", "cast", SubResource( 69 ), "crouch", "cast", SubResource( 70 ), "cast", "castloop", SubResource( 71 ), "castloop", "castend", SubResource( 72 ), "castend", "idle", SubResource( 73 ), "cast", "castend", SubResource( 74 ), "run", "idle", SubResource( 75 ), "dieloop", "idle", SubResource( 76 ), "die", "dieloop", SubResource( 77 ) ]
 start_node = "idle"
-graph_offset = Vector2( -161, -368.831 )
+graph_offset = Vector2( -123, -325.831 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=79]
 
@@ -766,17 +765,12 @@ root_motion_track = NodePath(".:frame")
 parameters/playback = SubResource( 79 )
 script = ExtResource( 4 )
 
-[node name="FireSpell" parent="Sprite" instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 17.2627, 1.45323 )
-scale = Vector2( 0.5, 0.5 )
-
 [node name="Attack" type="Area2D" parent="Sprite" groups=[
 "character",
 "weapon",
 ]]
 position = Vector2( -16.9579, 2.44748 )
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Attack"]
 scale = Vector2( 0.5, 0.125 )
