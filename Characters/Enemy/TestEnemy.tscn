@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Enemy/TestEnemy.gd" type="Script" id=2]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[node name="TestEnemy" index="0" instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="4"]
+frame = 74
+
+[node name="AnimationTree" parent="Sprite" index="1"]
+parameters/playback = SubResource( 1 )
+
+[node name="SimpleAI" type="Node" parent="." index="5"]
+
+[node name="Dir" type="Timer" parent="SimpleAI" index="0"]
+one_shot = true
+
+[connection signal="timeout" from="SimpleAI/Dir" to="." method="_on_Dir_timeout"]

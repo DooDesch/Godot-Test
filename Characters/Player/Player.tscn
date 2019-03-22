@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Player/Player.gd" type="Script" id=2]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[node name="Player" instance=ExtResource( 1 )]
+position = Vector2( 448, 324 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -0.126404, -0.125214 )
+
+[node name="Sprite" parent="." index="4"]
+frame = 67
+
+[node name="AnimationTree" parent="Sprite" index="1"]
+parameters/playback = SubResource( 1 )
+
+[node name="RayCast2D" type="Node2D" parent="." index="5"]
+z_index = 1
+
+[node name="ray_1" type="RayCast2D" parent="RayCast2D" index="0"]
+enabled = true
+cast_to = Vector2( 0, 30 )
+
+[node name="ray_2" type="RayCast2D" parent="RayCast2D" index="1"]
+position = Vector2( 4.37004, 0.375504 )
+enabled = true
+cast_to = Vector2( 0, 30 )
+
+[node name="ray_3" type="RayCast2D" parent="RayCast2D" index="2"]
+position = Vector2( -3.36865, 0 )
+enabled = true
+cast_to = Vector2( 0, 30 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="6"]
+current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
