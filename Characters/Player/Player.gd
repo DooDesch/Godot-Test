@@ -28,7 +28,7 @@ func _input(_event):
 			attackArray["attack2"] = true
 		elif !attackArray["attack3"]:
 			attackArray["attack3"] = true
-			
+		
 		comboTimer.stop()
 		comboTimer.start()
 		attackTimer.start()
