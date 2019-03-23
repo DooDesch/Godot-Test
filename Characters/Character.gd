@@ -1,21 +1,20 @@
 extends KinematicBody2D
 
+
 signal _on_character_health_changed
 signal _on_character_died
 
-onready var animtree = get_node("Sprite/AnimationTree")
-onready var animPlayer = get_node("Sprite/AnimationPlayer")
-onready var collision = get_node("CollisionShape2D")
-onready var attackTimer = get_node("AttackTimer")
-onready var comboTimer = get_node("ComboTimer")
-onready var jumpTimer = get_node("JumpTimer")
+onready var animTree : AnimationTree = get_node("Sprite/AnimationTree")
+onready var animPlayer : AnimationPlayer = get_node("Sprite/AnimationPlayer")
+onready var collision : CollisionShape2D = get_node("CollisionShape2D")
+onready var comboTimer : Timer = get_node("ComboTimer")
+
+export(int) var MAX_HEALTH = 100
+export(int) var GRAVITY = 20
+export(int) var ACCELERATION = 50
+export(int) var MAX_SPEED = 300
 
 const UP = Vector2(0, -1)
-const GRAVITY = 20
-const ACCELERATION = 50
-const MAX_SPEED = 300
-const SPRINT = 150
-const MAX_HEALTH = 100
 
 var velocity = Vector2()
 var direction = 0
@@ -51,7 +50,7 @@ func _physics_process(_delta):
 	
 	move()
 	
-	play_anim(anim)
+	animTree.play(anim)
 	
 	if dead: die()
 
@@ -61,7 +60,6 @@ func reset_vars():
 	can_move = true
 	can_fall = true
 	is_frozen = false
-
 
 
 func check_health():
@@ -79,33 +77,23 @@ func move_loop():
 		velocity.x = max(velocity.x - ACCELERATION - sprint, -MAX_SPEED - sprint)
 	else: #Stop moving
 		velocity.x = lerp(velocity.x, 0, 0.4)
-	
-	custom_move()
-
-func custom_move():
-	pass
 
 
 func attack_loop():
-	if is_on_floor:
-		if attackArray["attack3"]:
-			can_move = false
-		elif attackArray["attack2"]:
+	if attackArray["attack3"]:
+		can_move = false
+		if !comboTimer.is_stopped():
+			comboTimer.stop()
+	elif is_on_floor:
+		if attackArray["attack2"]:
 			can_move = false
 		elif attackArray["attack1"]:
 			can_move = false
 	else:
-		if attackArray["attack3"]:
-			can_move = false
-		elif attackArray["attack2"]:
+		if attackArray["attack2"]:
 			velocity.y -= GRAVITY/5.0
 		elif attackArray["attack1"]:
 			velocity.y -= GRAVITY/5.0
-	
-	custom_attack()
-
-func custom_attack():
-	pass
 
 
 func animation_loop():
@@ -113,10 +101,11 @@ func animation_loop():
 		anim = "die"
 		return
 	
+	if hurt:
+		hurt = false
+		animPlayer.play("hurt")
+	
 	if is_on_floor:
-		if hurt:
-			hurt = false
-			animPlayer.play("hurt")
 		if attackArray["attack3"]:
 			anim = "attack3"
 		elif attackArray["attack2"]:
@@ -134,11 +123,6 @@ func animation_loop():
 			anim = "airattack2"
 		elif attackArray["attack1"]:
 			anim = "airattack1"
-	
-	custom_animation()
-
-func custom_animation():
-	pass
 
 
 func move():
@@ -150,26 +134,19 @@ func move():
 		velocity = move_and_slide(velocity, UP)
 
 
-func play_anim(anim):
-	if animtree.playback.get_current_node() != anim: # if we aren't already playing the same animation
-		animtree.playback.travel(anim)
-	else:  
-		return
-
-
 func die():
 	collision.disabled = true
 	modulate.a -= 0.01
 
 
 func take_damage(damage):
-	print("Damage : ", damage)
+	#print("Damage : ", damage)
 	if dead:
 		return
 	
 	health -= damage
 	hurt = true
-	print("Health : ", health)
+	#print("Health : ", health)
 	if health <= 0:
 		health = 0
 		emit_signal("_on_character_died")
@@ -187,10 +164,6 @@ func reset_attack_combo():
 func _on_attack3_end():
 	reset_attack_combo()
 	comboTimer.stop()
-
-
-func _on_JumpTimer_timeout():
-	pass # Replace with function body.
 
 
 func _on_ComboTimer_timeout():

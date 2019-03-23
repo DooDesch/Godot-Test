@@ -1,7 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Enemy/TestEnemy.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/Spritesheet.png-e8efb9beee2269f7c1bfd586339695b8.stex"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Sprite
+
+onready var player = get_node(\"..\")
+
+func _process(_delta):
+	if player.direction < 0:
+		set_flip_h(true)
+	elif player.direction > 0:
+		set_flip_h(false)
+"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -9,13 +24,15 @@
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="4"]
+[node name="Sprite" parent="." index="3"]
+texture = SubResource( 2 )
 frame = 74
+script = SubResource( 3 )
 
 [node name="AnimationTree" parent="Sprite" index="1"]
 parameters/playback = SubResource( 1 )
 
-[node name="SimpleAI" type="Node" parent="." index="5"]
+[node name="SimpleAI" type="Node" parent="." index="4"]
 
 [node name="Dir" type="Timer" parent="SimpleAI" index="0"]
 one_shot = true

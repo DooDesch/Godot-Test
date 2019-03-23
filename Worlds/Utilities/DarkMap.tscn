@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Worlds/Utilities/DarkMap.gd" type="Script" id=1]
+
+[node name="CanvasModulate" type="CanvasModulate"]
+visible = false
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 1 )
+

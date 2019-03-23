@@ -1,8 +1,7 @@
 extends Particles2D
 
-onready var player = get_node("../..")
-onready var sprite = get_node("..")
 
+onready var sprite = get_node("..")
 onready var positions = {'right': -position.x, 'left': position.x}
 
 

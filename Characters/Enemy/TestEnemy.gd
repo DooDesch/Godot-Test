@@ -1,7 +1,8 @@
 extends "res://Characters/Character.gd"
 
 
-onready var dirTimer = get_node("SimpleAI/Dir")
+onready var attackTimer : Timer = get_node("AttackTimer")
+onready var dirTimer : Timer = get_node("SimpleAI/Dir")
 
 
 func _ready():
@@ -9,7 +10,7 @@ func _ready():
 	dirTimer.start()
 
 
-func _process(delta):
+func _process(_delta):
 	if dead and !dirTimer.is_stopped():
 		dirTimer.stop()
 	if direction != 0 and velocity == Vector2(0, 0):
@@ -26,3 +27,11 @@ func random_int(min_value, max_value, inclusive_range = false):
 		max_value += 1
 	var range_size = max_value - min_value
 	return (randi() % range_size) + min_value
+
+
+func take_damage(damage):
+	.take_damage(damage)
+	
+	if !attackArray["attack3"]:
+		attackArray["attack3"] = true
+	comboTimer.start()

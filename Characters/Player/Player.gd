@@ -1,6 +1,11 @@
 extends "res://Characters/Character.gd"
 
-const JUMP_HEIGHT = -550
+
+export(int) var SPRINT = 150
+export(int) var JUMP_HEIGHT = -550
+
+onready var attackTimer : Timer = get_node("AttackTimer")
+#onready var jumpTimer = get_node("JumpTimer")
 
 var spell = false
 var jump = false
@@ -13,7 +18,7 @@ func _input(_event):
 	if Input.is_action_pressed("sprint"): sprint = SPRINT
 	else: sprint = 0
 	
-	if Input.is_action_pressed("spell"): spell = !spell
+	if Input.is_action_just_pressed("spell"): spell = !spell
 	
 	if Input.is_action_pressed("jump"): jump = true
 	else: jump = false
@@ -34,14 +39,18 @@ func _input(_event):
 		attackTimer.start()
 
 
-func custom_attack():
+func attack_loop():
+	.attack_loop()
+	
 	if is_on_floor:
 		if spell:
 			direction = 0 #Prevent changing looking direction
 			is_frozen = true #Prevent moving vertical or horizontal
 
 
-func custom_animation():
+func animation_loop():
+	.animation_loop()
+	
 	if is_on_floor:
 		if spell:
 			anim = "castloop"
@@ -57,7 +66,9 @@ func custom_animation():
 			anim = "fall"
 
 
-func custom_move():
+func move_loop():
+	.move_loop()
+	
 	if is_on_floor:
 		if jump:
 			velocity.y = JUMP_HEIGHT
@@ -69,6 +80,5 @@ func custom_move():
 				velocity.y -= GRAVITY/2.0
 
 
-func _ready():
-	health = MAX_HEALTH * 2
-	pass
+func _on_JumpTimer_timeout():
+	pass # Replace with function body.
