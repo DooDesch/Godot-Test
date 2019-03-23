@@ -4,10 +4,10 @@
 [ext_resource path="res://Characters/Pixie.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Npc/chibi-monsters-files/Sprites/bat.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=60]
+[sub_resource type="CircleShape2D" id=1]
 radius = 6.92312
 
-[sub_resource type="Animation" id=55]
+[sub_resource type="Animation" id=2]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -23,16 +23,16 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=38]
+[sub_resource type="AnimationNodeAnimation" id=3]
 animation = "idle"
 
-[sub_resource type="AnimationNodeStateMachine" id=58]
-states/idle/node = SubResource( 38 )
+[sub_resource type="AnimationNodeStateMachine" id=4]
+states/idle/node = SubResource( 3 )
 states/idle/position = Vector2( 586, 110 )
 start_node = "idle"
 graph_offset = Vector2( 69, -226.831 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=59]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
 
 [node name="Pixie" index="0" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
@@ -43,7 +43,7 @@ GRAVITY = 0
 ACCELERATION = 25
 
 [node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource( 60 )
+shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="3"]
 texture = ExtResource( 3 )
@@ -52,11 +52,11 @@ hframes = 3
 frame = 2
 
 [node name="AnimationPlayer" parent="Sprite" index="0"]
-anims/idle = SubResource( 55 )
+anims/idle = SubResource( 2 )
 
 [node name="AnimationTree" parent="Sprite" index="1"]
-tree_root = SubResource( 58 )
-parameters/playback = SubResource( 59 )
+tree_root = SubResource( 4 )
+parameters/playback = SubResource( 5 )
 
 [node name="DebugTimer" type="Timer" parent="." index="4"]
 one_shot = true

@@ -9,6 +9,7 @@ var parent
 var parent_sprite
 var following : Dictionary = {'x': false, 'y': false}
 var send_pixie = false
+var debug_counter = 0
 
 
 func _ready():
@@ -32,13 +33,7 @@ func move_loop():
 			direction = 1
 		return
 	
-	if (following.x and velocity.x == 0 or following.y and velocity.y == 0) and debugTimer.is_stopped():
-		print("----------------")
-		print("DEBUG X : ", following.x, velocity.x)
-		print("DEBUG Y : ", following.y, velocity.y)
-		debugTimer.start()
-	elif !following.x and !following.y and !debugTimer.is_stopped():
-		debugTimer.stop()
+	debug_pixie()
 	
 	following.x = false
 	following.y = false
@@ -65,9 +60,21 @@ func move_loop():
 		velocity.y = lerp(velocity.y, 0, 0.4)
 
 
+func debug_pixie():
+	if (following.x and velocity.x == 0 or following.y and velocity.y == 0) and debugTimer.is_stopped():
+		debug_counter += 1
+		if debug_counter > 10:
+			debugTimer.start()
+	elif (following.x and velocity.x != 0 or following.y and velocity.y != 0) and !debugTimer.is_stopped():
+		debugTimer.stop()
+	else:
+		debug_counter = 0
+
+
 func animation_loop():
 	anim = "idle"
 
 
 func _on_DebugTimer_timeout():
 	position = parent.position
+	debug_counter = 0

@@ -1,8 +1,6 @@
 extends Light2D
 
 
-onready var jumpTimer : Timer = get_node("JumpTimer")
-
 export(bool) var light_on = true
 export(float, 0, 1) var min_energy = .5
 

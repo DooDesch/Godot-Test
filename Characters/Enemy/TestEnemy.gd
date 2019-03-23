@@ -1,7 +1,6 @@
 extends "res://Characters/Character.gd"
 
 
-onready var attackTimer : Timer = get_node("AttackTimer")
 onready var dirTimer : Timer = get_node("SimpleAI/Dir")
 
 
