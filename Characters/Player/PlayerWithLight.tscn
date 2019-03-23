@@ -26,10 +26,6 @@ shadow_filter = 5
 shadow_filter_smooth = 11.7
 script = ExtResource( 4 )
 
-[node name="JumpTimer" type="Timer" parent="Pixie/Light2D"]
-wait_time = 0.5
-one_shot = true
-
 [node name="Light2D2" type="Light2D" parent="Pixie"]
 scale = Vector2( 0.225, 0.225 )
 texture = ExtResource( 3 )
@@ -40,4 +36,3 @@ shadow_gradient_length = 15.0
 shadow_filter = 5
 shadow_filter_smooth = 11.7
 
-[connection signal="timeout" from="Pixie/Light2D/JumpTimer" to="Pixie/Light2D" method="_on_JumpTimer_timeout"]

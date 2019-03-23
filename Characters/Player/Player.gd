@@ -70,14 +70,13 @@ func move_loop():
 	.move_loop()
 	
 	if is_on_floor:
-		if jump:
-			velocity.y = JUMP_HEIGHT
-		if crouch:
-			velocity.x = 0
+		if jump: #If jump-key is pressed
+			velocity.y = JUMP_HEIGHT #Jump
+		if crouch: #If crouch-key is pressed
+			can_move = false
 	else:
-		if velocity.y < 0:
-			if jump:
-				velocity.y -= GRAVITY/2.0
+		if velocity.y < 0 and jump: #If character is going up and jump-key is pressed
+			velocity.y -= GRAVITY/2.0 #Reduce Gravity to jump higher
 
 
 func _on_JumpTimer_timeout():
