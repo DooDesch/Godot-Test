@@ -15,8 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Test"
-run/main_scene="res://Worlds/World.tscn"
+config/name="DungeonTest"
+run/main_scene="res://Menus/StartMenu/StartMenu.tscn"
 config/icon="res://icon.png"
 
 [input]

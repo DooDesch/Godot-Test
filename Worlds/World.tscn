@@ -31,4 +31,3 @@ position = Vector2( 640, 578.906 )
 
 [node name="WorldComplete" parent="." instance=ExtResource( 6 )]
 next_world = "res://Worlds/World2.tscn"
-
